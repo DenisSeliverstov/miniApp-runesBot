@@ -1,30 +1,30 @@
+const tg = window.Telegram.WebApp;
+
+tg.ready(); // Говорим Telegram, что приложение готово
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.body.style.backgroundColor = tg.themeParams.bg_color || "#2c3e50";
+  document.body.style.color = tg.themeParams.text_color || "#ecf0f1";
+
+  // Добавление кнопки закрытия Web App
+  tg.MainButton.setText("Закрыть");
+  tg.MainButton.show();
+  tg.MainButton.onClick(() => tg.close());
+});
+
+const user = tg.initDataUnsafe.user;
+
+if (user) {
+  const greeting = document.createElement('h2');
+  greeting.textContent = `Привет, ${user.first_name}!`;
+  document.querySelector('.container').prepend(greeting);
+}
+
 const runes = [
   { name: "Феху", meaning: "Богатство, изобилие.", reversed: "Потери, жадность." },
   { name: "Уруз", meaning: "Сила, энергия.", reversed: "Слабость, болезнь." },
-  { name: "Турисаз", meaning: "Защита, препятствие.", reversed: "Опасность, конфликт." },
-  { name: "Ансуз", meaning: "Знание, сообщение.", reversed: "Обман, путаница." },
-  { name: "Райдо", meaning: "Путешествие, движение.", reversed: "Задержка, препятствие." },
-  { name: "Кеназ", meaning: "Озарение, творческая сила.", reversed: "Тьма, разочарование." },
-  { name: "Гебо", meaning: "Дар, партнерство.", reversed: "Жертва, неравенство." },
-  { name: "Вуньо", meaning: "Радость, успех.", reversed: "Печаль, трудности." },
-  { name: "Хагалаз", meaning: "Разрушение, стихия.", reversed: "Внутренняя трансформация." },
-  { name: "Наутиз", meaning: "Нужда, необходимость.", reversed: "Освобождение, окончание страданий." },
-  { name: "Иса", meaning: "Застой, препятствие.", reversed: "Пауза, ожидание." },
-  { name: "Йера", meaning: "Урожай, результаты усилий.", reversed: "Задержка, несвоевременность." },
-  { name: "Эйваз", meaning: "Защита, оборона.", reversed: "Конфликт, неудача." },
-  { name: "Перт", meaning: "Тайна, судьба.", reversed: "Утрата, разочарование." },
-  { name: "Альгиз", meaning: "Защита, поддержка.", reversed: "Риск, уязвимость." },
-  { name: "Совело", meaning: "Успех, победа.", reversed: "Неправильное использование силы." },
-  { name: "Тейваз", meaning: "Справедливость, победа.", reversed: "Поражение, несправедливость." },
-  { name: "Беркана", meaning: "Рождение, рост.", reversed: "Смерть, упадок." },
-  { name: "Эваз", meaning: "Прогресс, движение.", reversed: "Застой, промедление." },
-  { name: "Манназ", meaning: "Человечество, сообщество.", reversed: "Изоляция, эгоизм." },
-  { name: "Лагуз", meaning: "Интуиция, эмоции.", reversed: "Блокировка интуиции, страх." },
-  { name: "Ингуз", meaning: "Завершение, плодородие.", reversed: "Задержка, трудности в завершении." },
-  { name: "Дагаз", meaning: "День, рассвет.", reversed: "Неожиданные перемены, переходный период." },
-  { name: "Отал", meaning: "Наследие, собственность.", reversed: "Потеря, разрыв связей." }
+  // остальные руны
 ];
-
 
 function getRandomRune() {
   const rune = runes[Math.floor(Math.random() * runes.length)];
@@ -44,8 +44,8 @@ function showOneRune() {
   const runeContainer = document.getElementById("rune-container");
 
   runeContainer.innerHTML = `
-      <div class="rune ${rune.isReversed ? 'reversed' : ''}">${rune.name}</div>
-      <div class="description">${rune.meaning}</div>
+    <div class="rune ${rune.isReversed ? 'reversed' : ''}">${rune.name}</div>
+    <div class="description">${rune.meaning}</div>
   `;
 }
 
@@ -59,9 +59,9 @@ function showThreeRunes() {
   for (let i = 0; i < 3; i++) {
     const rune = getRandomRune();
     runesContainer.innerHTML += `
-          <div class="rune ${rune.isReversed ? 'reversed' : ''}">${rune.name}</div>
-          <div class="description">${rune.meaning}</div>
-      `;
+      <div class="rune ${rune.isReversed ? 'reversed' : ''}">${rune.name}</div>
+      <div class="description">${rune.meaning}</div>
+    `;
   }
 }
 
