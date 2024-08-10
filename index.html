@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Гадание на рунах</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Гадание на скандинавских рунах</h1>
+    <div id="main-menu">
+      <button onclick="showOneRune()">Гадать по одной руне</button>
+      <button onclick="showThreeRunes()">Гадать по трем рунам</button>
+    </div>
+
+    <div id="one-rune" class="hidden">
+      <button onclick="goBack()">Назад</button>
+      <p>Гадание по одной руне. Задайте вопрос и выберите руну.</p>
+      <div id="rune-container"></div>
+    </div>
+
+    <div id="three-runes" class="hidden">
+      <button onclick="goBack()">Назад</button>
+      <p>Гадание по трем рунам. Первая руна символизирует прошлое, вторая - настоящее, третья - будущее.</p>
+      <div id="runes-container"></div>
+    </div>
+  </div>
+  <script src="scripts.js"></script>
+</body>
+
+</html>
