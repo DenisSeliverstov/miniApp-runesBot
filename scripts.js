@@ -3,8 +3,8 @@ const tg = window.Telegram.WebApp;
 tg.ready(); // Говорим Telegram, что приложение готово
 
 document.addEventListener("DOMContentLoaded", () => {
-  document.body.style.backgroundColor = tg.themeParams.bg_color || "#2c3e50";
-  document.body.style.color = tg.themeParams.text_color || "#ecf0f1";
+  document.body.style.backgroundColor = "#2c3e50";
+  document.body.style.color = "#babcbd";
 
   // Добавление кнопки закрытия Web App
   tg.MainButton.setText("Закрыть");
